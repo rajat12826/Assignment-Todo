@@ -22,7 +22,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/auth/register", formData);
+      const response = await axios.post("https://assignment-todo-indol.vercel.app/auth/register", formData);
       if (response.status === 201) {
         router.push("/auth/login"); 
       }
