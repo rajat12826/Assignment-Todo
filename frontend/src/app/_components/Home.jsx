@@ -21,15 +21,26 @@ export default function Home() {
   const [taskToDelete, setTaskToDelete] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
   const [loading,setloading]=useState(false)
-  const userId = localStorage.getItem('user'); 
+  const [userId, setUserId] = useState(null);
   const router=useRouter()
-  if (!userId) {
-    
-    window.location.href = '/auth/register';
-    return null;  
-  }
+  
 
   
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('user');
+    if (!storedUserId) {
+      
+      router.push("/auth/register")
+      return;
+    }
+    setUserId(storedUserId);  
+  }, []); 
+
+  useEffect(() => {
+    if (userId) {
+      fetchTasks();  
+    }
+  }, [userId]);
   const fetchTasks = async () => {
     try {
       const { data } = await api.get('/tasks');
@@ -40,11 +51,6 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    fetchTasks();
-    console.log(userId);
-    
-  }, []);
 
   
   useEffect(() => {
@@ -80,6 +86,7 @@ export default function Home() {
         const reponse=await api.put(`/tasks/${currentTask.id}`, taskData);
         setCurrentTask(null)
       } 
+      
   else{
     const reponse=await api.post('/tasks', taskData);
   }
@@ -96,11 +103,13 @@ export default function Home() {
   const handleEdit = (task) => {
     setCurrentTask(task);
     setIsFormOpen(true);
+    
   };
 
   const handleDelete = (task) => {
     setTaskToDelete(task);
     setIsDeleteModalOpen(true);
+  
     return true
   };
 
