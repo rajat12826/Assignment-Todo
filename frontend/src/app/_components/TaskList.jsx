@@ -42,7 +42,7 @@ const TaskList = ({ tasks, onEdit, onDelete }) => {
   return (
     <Table className="font-semibold  border-separate border-spacing-y-3">
       <TableHeader className="font-bold text-2xl">
-        <TableRow>
+        <TableRow className="hover:bg-[#2c2638]">
           <TableCell>Title</TableCell>
           <TableCell>Status</TableCell>
           <TableCell>Due Date</TableCell>

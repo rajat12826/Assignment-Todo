@@ -110,6 +110,7 @@ const TaskFormModal = ({ isOpen, onClose, onSubmit, initialData = {} }) => {
         </form>
       </DialogContent>
     </Dialog>
+    // className="bg-[#6d54b5] hover:bg-[#6f4dd5] w-[250px] text-white py-2 rounded-lg items-center"
   );
 };
 

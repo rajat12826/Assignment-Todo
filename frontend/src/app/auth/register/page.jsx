@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { LoaderCircle } from "lucide-react";
 
 const Register = () => {
+  const [loading,setloading]=useState(false)
   const router= useRouter();
   const [formData, setFormData] = useState({
     name: "",
@@ -71,7 +74,7 @@ const Register = () => {
           required
         />
       </div>
-      <button type="submit" className="bg-[#6d54b5] hover:bg-[#6f4dd5] w-[250px] text-white py-2 rounded-lg ">Register</button>
+      <Button type="submit"className="bg-[#6d54b5] hover:bg-[#6f4dd5] w-[250px] text-white py-2 rounded-lg items-center" >{loading?<LoaderCircle className="animate-spin"/>:null}Register</Button>
     </form>
   </div>
 </div>

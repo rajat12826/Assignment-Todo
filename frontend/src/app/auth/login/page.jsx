@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { LoaderCircle, LoaderCircleIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
+  const [loading,setloading]=useState(false)
     const router= useRouter();
   const [formData, setFormData] = useState({
     email: "",
@@ -19,7 +22,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+setloading(true)
     try {
       const response = await axios.post("https://assignment-todo-indol.vercel.app/auth/login", formData);
       const { message, userId } = response.data;
@@ -33,8 +36,13 @@ const Login = () => {
        router.push("/");
       }
     } catch (err) {
+      
       setError(err.response?.data?.error || "Something went wrong.");
     }
+    finally{
+      setloading(false)
+    }
+   
   };
 
   return (
@@ -65,7 +73,7 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit" className="bg-[#6d54b5] hover:bg-[#6f4dd5] w-[250px] text-white py-2 rounded-lg ">Login</button>
+        <Button type="submit"className="bg-[#6d54b5] hover:bg-[#6f4dd5] w-[250px] text-white py-2 rounded-lg items-center" >{loading?<LoaderCircle className="animate-spin"/>:null}Login</Button>
       </form>
     </div>
   </div>
