@@ -33,25 +33,21 @@ To run both the **frontend** and **backend** of the application, follow these st
 ```bash
 git clone https://github.com/your-username/todo-app.git
 cd todo-app
-Frontend Setup
-Navigate to the frontend folder:
+
 ```
 ### Frontend Setup
 Navigate to the frontend folder:
 ```bash
-Copy
 cd frontend
-Install the frontend dependencies:
+
 ```
 ### Install the frontend dependencies:
 ```bash
-Copy
 npm install  
 ```
 ### Run the frontend development server:
 
 ```bash
-Copy
 npm run dev   # Or `yarn dev`
 ```
 ### The frontend should now be running at http://localhost:3000.
@@ -60,31 +56,26 @@ npm run dev   # Or `yarn dev`
 ### Navigate to the backend folder:
 
 ```bash
-Copy
 cd ../backend
 ```
 ### Install the backend dependencies:
 
 ```bash
-Copy
 npm install   # Or `yarn install` if you're using Yarn
 ```
 ### Configure environment variables: Create a .env file in the backend folder and configure the necessary environment variables:
 
 ```bash
-Copy
 DATABASE_URL="your-database-connection-string"
 JWT_SECRET="your-jwt-secret"
 ```
 ### Run Prisma migration:
 ```bash
-Copy
 npx prisma migrate dev
 ```
 ### Start the backend server:
 
 ```bash
-Copy
 npm start   # Or `yarn start`
 ```
 ### The backend should now be running at http://localhost:5000.
@@ -112,13 +103,11 @@ Make sure the backend is running locally before you start the frontend.
 ### Run the following command to install the necessary dependencies:
 
 ```bash
-Copy
 npm install
 ```
 After the dependencies are installed, run the development server:
 
 ```bash
-Copy
 npm run dev
 ```
 The frontend should now be available at http://localhost:3000.
@@ -138,7 +127,6 @@ Open a terminal and navigate to the backend directory.
 ### Install the backend dependencies:
 
 ```bash
-Copy
 npm install
 ```
 ### Configure the environment variables in .env file.
@@ -146,13 +134,11 @@ npm install
 ### Run the Prisma migration:
 
 ```bash
-Copy
 npx prisma migrate dev
 ```
 ### Start the backend server:
 
 ```bash
-Copy
 npm start
 ```
 ### The backend should now be available at http://localhost:5000.
