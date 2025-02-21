@@ -133,7 +133,7 @@ export default function Home() {
       <div className='flex justify-between pr-10'>
       <h1 className='text-2xl font-bold  my-5'>To-Do List</h1>
       {
-        localStorage.getItem("user")&&<Button onClick={() =>{
+        userId&&<Button onClick={() =>{
           localStorage.removeItem("user")
           router.push('/auth/login')
         }} className="bg-red-500 hover:bg-red-600 my-5">
